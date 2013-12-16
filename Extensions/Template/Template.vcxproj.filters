@@ -65,10 +65,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Ext.def">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="Ext.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Ext.def">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

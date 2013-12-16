@@ -19,7 +19,7 @@ enum {
 	PROPID_SETTINGS = PROPID_EXTITEM_CUSTOM_FIRST,
 	Version,
 	Email,
-	Changes,
+//	Changes,
 
 // Example
 // -------
@@ -56,7 +56,6 @@ PropData Properties[] = {
 //	PropData_Color		(PROPID_COLOR,		IDS_PROP_COLOR,			IDS_PROP_COLOR_INFO),
 	PropData_StaticString(Version, (UINT_PTR)"Version:", (UINT_PTR)"Extension Version number"),
 	PropData_StaticString(Email, (UINT_PTR)"Email", (UINT_PTR)"Any comments/issues/complaints/questions/etc should be sent here"),
-	PropData_EditMultiLine(Changes, (UINT_PTR)"Changelog", (UINT_PTR)"Most recent changelog"),
 
 	// End of table (required)
 	PropData_End()
@@ -414,8 +413,6 @@ LPVOID WINAPI DLLExport GetPropValue(LPMV mV, LPEDATA edPtr, UINT nPropID)
 		return new CPropStringValue("October 22th, 2013");
 	case Email:
 		return new CPropStringValue("ProdigyXable@gmail.com");
-	case Changes:
-		return new CPropStringValue("Click me to view changelog. \r\n\r\n+ Added conditions for character validation. \r\n+ Added expressions to trim leading and trailing whitespaces.");
 	}
 //
 //	// Returns a color.
@@ -578,8 +575,6 @@ BOOL WINAPI IsPropEnabled(LPMV mV, LPEDATA edPtr, UINT nPropID)
 
 	case (Version || Email):
 		return true;
-	case Changes:
-		return false;
 
 	}
 

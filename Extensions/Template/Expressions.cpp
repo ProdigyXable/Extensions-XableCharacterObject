@@ -879,3 +879,37 @@ TCHAR * Extension::RemoveAllLowercaseLetters(const TCHAR * Message)
 
 	return New;
 }
+TCHAR * Extension::PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats)
+{
+	repeats = max(repeats, 0);
+	
+	string PhraseMessage = "";
+
+	for(int index = 0; index < repeats; index++)
+	{
+		PhraseMessage += Phrase;
+	}
+
+	string FinalMessage = "";
+
+	FinalMessage = PhraseMessage + (string)Message;
+
+	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());
+}
+TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats)
+{
+	repeats = max(repeats, 0);
+	
+	string PhraseMessage = "";
+
+	for(int index = 0; index < repeats; index++)
+	{
+		PhraseMessage += Phrase;
+	}
+
+	string FinalMessage = "";
+
+	FinalMessage = (string)Message + PhraseMessage ;
+
+	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());
+}

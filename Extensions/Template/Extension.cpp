@@ -70,6 +70,9 @@ Extension::Extension(LPRDATA _rdPtr, LPEDATA edPtr, fpcob cobPtr)
 	LinkExpression(43, RemoveLeadingAndTrailingLowercaseLetters);
 	LinkExpression(44, RemoveAllLowercaseLetters);
 
+	LinkExpression(45, PadLeftPhrase);
+	LinkExpression(46, PadRightPhrase);
+
 	LinkCondition(0, NumbersOnly);
 	LinkCondition(1, AnyNumbers);
 

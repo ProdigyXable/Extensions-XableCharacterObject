@@ -1,0 +1,73 @@
+﻿Build started 12/15/2013 6:56:47 AM.
+     1>Project "C:\Users\Xable\Documents\GitHub\Extensions-XableCharacterObject\Extensions\Template\Template.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\Inc /I.\ /Zi /nologo /W3 /WX- /O1 /Ob1 /Oy- /D COXSDK /D IN_EXT_VERSION2 /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _WINDOWS /D RUN_ONLY /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _UNICODE /D UNICODE /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo".\ReleaseRuntimeUnicode\\" /Fd".\ReleaseRuntimeUnicode\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Lib\Edif.Edittime.cpp ..\..\Lib\Edif.General.cpp ..\..\Lib\Edif.Runtime.cpp ..\..\Lib\Edif.cpp ..\..\Lib\ObjectSelection.cpp Actions.cpp Conditions.cpp Edittime.cpp Expressions.cpp Extension.cpp General.cpp Runtime.cpp
+         Extension.cpp
+         Expressions.cpp
+     1>Expressions.cpp(890): error C2679: binary '+=' : no operator found which takes a right-hand operand of type 'const TCHAR *' (or there is no acceptable conversion)
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstring(997): could be 'std::basic_string<_Elem,_Traits,_Alloc> &std::basic_string<_Elem,_Traits,_Alloc>::operator +=(const std::basic_string<_Elem,_Traits,_Alloc> &)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Alloc=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstring(1002): or       'std::basic_string<_Elem,_Traits,_Alloc> &std::basic_string<_Elem,_Traits,_Alloc>::operator +=(const _Elem *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Alloc=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstring(1007): or       'std::basic_string<_Elem,_Traits,_Alloc> &std::basic_string<_Elem,_Traits,_Alloc>::operator +=(_Elem)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Alloc=std::allocator<char>
+                 ]
+                 while trying to match the argument list '(std::string, const TCHAR *)'
+     1>Expressions.cpp(895): error C2440: 'type cast' : cannot convert from 'const TCHAR *' to 'std::string'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>Expressions.cpp(907): error C2679: binary '+=' : no operator found which takes a right-hand operand of type 'const TCHAR *' (or there is no acceptable conversion)
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstring(997): could be 'std::basic_string<_Elem,_Traits,_Alloc> &std::basic_string<_Elem,_Traits,_Alloc>::operator +=(const std::basic_string<_Elem,_Traits,_Alloc> &)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Alloc=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstring(1002): or       'std::basic_string<_Elem,_Traits,_Alloc> &std::basic_string<_Elem,_Traits,_Alloc>::operator +=(const _Elem *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Alloc=std::allocator<char>
+                 ]
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xstring(1007): or       'std::basic_string<_Elem,_Traits,_Alloc> &std::basic_string<_Elem,_Traits,_Alloc>::operator +=(_Elem)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Alloc=std::allocator<char>
+                 ]
+                 while trying to match the argument list '(std::string, const TCHAR *)'
+     1>Expressions.cpp(912): error C2440: 'type cast' : cannot convert from 'const TCHAR *' to 'std::string'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         Runtime.cpp
+         General.cpp
+         Edittime.cpp
+         Conditions.cpp
+         Actions.cpp
+         ObjectSelection.cpp
+         Edif.cpp
+         Edif.Runtime.cpp
+         Edif.General.cpp
+         Edif.Edittime.cpp
+     1>Done Building Project "C:\Users\Xable\Documents\GitHub\Extensions-XableCharacterObject\Extensions\Template\Template.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.98

@@ -148,15 +148,14 @@
 			],
 		],
 
+		["Padding",
+			[45, "Left Pad String"],
+			[46, "Right Pad String"],
+		],
+
 		["Other",
 		   	[0,"Character Count"],
-			
-			"Separator",
-			
 			[5,"Count the Number of a Specific Character"],
-			
-			"Separator",	
-			
 			[11, "Return Value of a Character"],
 		],
 
@@ -648,6 +647,26 @@
             "Parameters": 
 			[
                 ["Text","Enter the Message Here"],
+            ]
+        },
+		{
+            "Title": "LeftPad(",
+            "Returns": "Text",
+            "Parameters": 
+			[
+                ["Text","Message"],
+				["Text","Padding Phrase"],
+				["Integer","Repetition Count"],
+            ]
+        },
+		{
+            "Title": "RightPad(",
+            "Returns": "Text",
+            "Parameters": 
+			[
+                ["Text","Message"],
+				["Text","Padding Phrase"],
+				["Integer","Repetition Count"],
             ]
         },
     ]
