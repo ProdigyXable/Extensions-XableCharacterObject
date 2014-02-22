@@ -95,6 +95,7 @@ Extension::Extension(LPRDATA _rdPtr, LPEDATA edPtr, fpcob cobPtr)
 	LinkCondition(13, EndsWhiteSpace);
 
 	LinkCondition(14, ContainsInvalidFileCharacters);
+	LinkCondition(15, EmailFormat);
     /*
         This is where you'd do anything you'd do in CreateRunObject in the original SDK
 

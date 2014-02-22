@@ -62,6 +62,7 @@ public:
 		bool StartsWhiteSpace(const TCHAR * Message);
 		bool EndsWhiteSpace(const TCHAR * Message);
 		bool ContainsInvalidFileCharacters(const TCHAR * Message);
+		bool EmailFormat(const TCHAR * Message);
 
     /// Expressions
         

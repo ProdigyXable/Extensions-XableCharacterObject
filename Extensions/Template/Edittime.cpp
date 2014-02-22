@@ -410,7 +410,7 @@ LPVOID WINAPI DLLExport GetPropValue(LPMV mV, LPEDATA edPtr, UINT nPropID)
 	// -------
 	switch (nPropID) {
 	case Version:
-		return new CPropStringValue("October 22th, 2013");
+		return new CPropStringValue("February 22th, 2013");
 	case Email:
 		return new CPropStringValue("ProdigyXable@gmail.com");
 	}

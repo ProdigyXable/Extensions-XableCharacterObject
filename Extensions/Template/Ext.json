@@ -49,8 +49,12 @@
 			"Separator",
 
 			[14,"Contains Any Invalid Filepath Characters"],
-		
+			
 		],
+
+		["Other",
+			[15,"String is in an Email Format"],
+		]
 	
 		
 			
@@ -265,6 +269,13 @@
             "Triggered": false
         },
 		{"Title": "%o : Does %0 contain any invalid filepath characters?",
+            "Parameters":
+			[
+				["Text","Message"],
+            ],
+            "Triggered": false
+        },
+		{"Title": "%o : Is %0 in an email format?",
             "Parameters":
 			[
 				["Text","Message"],

@@ -892,7 +892,7 @@ TCHAR * Extension::PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, in
 
 	string FinalMessage = "";
 
-	FinalMessage = PhraseMessage + (string)Message;
+	FinalMessage = PhraseMessage + Message;
 
 	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());
 }
@@ -909,7 +909,8 @@ TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, i
 
 	string FinalMessage = "";
 
-	FinalMessage = (string)Message + PhraseMessage ;
+	FinalMessage = Message + PhraseMessage ;
 
 	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());
 }
+

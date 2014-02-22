@@ -243,3 +243,39 @@ bool Extension::ContainsInvalidFileCharacters(const TCHAR * Message)
 
 	return false;
 }
+
+bool Extension::EmailFormat(const TCHAR * Message)
+{
+	unsigned int length = _tcslen(Message);
+	
+
+	bool at_detected = false;
+	bool dot_detected = false;
+	bool after_characters = false;
+
+	const TCHAR At_Symbol = '@';
+	const TCHAR * At_Symbol_Pointer = &At_Symbol;
+	
+	for(int while_loop_index = 0; while_loop_index < length; ++while_loop_index)
+	{
+		if(Message[while_loop_index] == '@' && at_detected == false && Extension::FindCount(Message,At_Symbol_Pointer) == 1)
+		{
+			if(Message[while_loop_index + 1] != '.' && isalpha(Message[0]))
+			{
+				at_detected = true;
+			}
+		}
+
+		if(Message[while_loop_index] == '.' && at_detected == true)
+		{
+			if(Message[while_loop_index + 1] != NULL)
+			{
+				dot_detected = true;
+			}
+		}
+
+	}
+
+	return dot_detected;
+
+}
