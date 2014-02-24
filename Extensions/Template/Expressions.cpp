@@ -887,12 +887,14 @@ TCHAR * Extension::PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, in
 
 	for(int index = 0; index < repeats; index++)
 	{
-		PhraseMessage += Phrase;
+		PhraseMessage.append((char *) Phrase);
 	}
 
 	string FinalMessage = "";
 
-	FinalMessage = PhraseMessage + Message;
+	FinalMessage.append(PhraseMessage);
+	FinalMessage.append((char *) Message);
+
 
 	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());
 }
@@ -902,15 +904,32 @@ TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, i
 	
 	string PhraseMessage = "";
 
+	string copy_of_phrase = "";
+
+
+
 	for(int index = 0; index < repeats; index++)
 	{
-		PhraseMessage += Phrase;
+		PhraseMessage.append((char *)Phrase);
 	}
 
 	string FinalMessage = "";
 
-	FinalMessage = Message + PhraseMessage ;
+	FinalMessage.append((char *)Message);
+	FinalMessage.append(PhraseMessage);
 
 	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());
+}
+TCHAR * Extension::ReverseString(const TCHAR * Message)
+{
+	unsigned int length = _tcslen(Message);
+
+	string Message_String = "";
+
+	Message_String.append( (char *) Message);
+	Message_String = string( Message_String.rbegin(), Message_String.rend());
+
+	return Runtime.CopyString( (TCHAR *)Message_String.c_str());
+
 }
 

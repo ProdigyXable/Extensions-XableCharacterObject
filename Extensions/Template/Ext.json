@@ -2,7 +2,7 @@
     "About": {
         "Name": "Xable Character Object",
         "Author": "Samuel Benton",
-        "Copyright": "Copyright (C) 2013 Samuel Benton",
+        "Copyright": "Copyright (C) 2014 Samuel Benton",
         "Comment": "Allows for counting of certain types of characters within strings and string maniuplation. Currently only available for the English alphabet.",
         "URL": "http://www.xable.us",
         "Help": "http://www.xable.us/xable-character-object.html",
@@ -55,15 +55,10 @@
 		["Other",
 			[15,"String is in an Email Format"],
 		]
-	
-		
-			
-		
-	
 	],
-    "ExpressionMenu":
 
-	 [
+    "ExpressionMenu":
+	[
 		"Separator",
     
 		["Alphanumerical",
@@ -156,6 +151,11 @@
 			[45, "Left Pad String"],
 			[46, "Right Pad String"],
 		],
+
+		["String Functions",
+			[47, "Reverse String"],
+		],
+
 
 		["Other",
 		   	[0,"Character Count"],
@@ -680,5 +680,13 @@
 				["Integer","Repetition Count"],
             ]
         },
+		{	
+			"Title": "ReverseString(",
+			"Returns":	"Text",
+			"Parameters":
+			[
+				["Text", "Message"],
+			],
+		},
     ]
 }

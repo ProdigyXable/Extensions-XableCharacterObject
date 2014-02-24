@@ -122,6 +122,7 @@ public:
 
 		TCHAR * PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats);
 		TCHAR * PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats);
+		TCHAR * ReverseString(const TCHAR * Message);
 
     /* These are called if there's no function linked to an ID */
 

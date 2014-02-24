@@ -73,6 +73,8 @@ Extension::Extension(LPRDATA _rdPtr, LPEDATA edPtr, fpcob cobPtr)
 	LinkExpression(45, PadLeftPhrase);
 	LinkExpression(46, PadRightPhrase);
 
+	LinkExpression(47, ReverseString);
+
 	LinkCondition(0, NumbersOnly);
 	LinkCondition(1, AnyNumbers);
 
@@ -96,6 +98,7 @@ Extension::Extension(LPRDATA _rdPtr, LPEDATA edPtr, fpcob cobPtr)
 
 	LinkCondition(14, ContainsInvalidFileCharacters);
 	LinkCondition(15, EmailFormat);
+
     /*
         This is where you'd do anything you'd do in CreateRunObject in the original SDK
 
