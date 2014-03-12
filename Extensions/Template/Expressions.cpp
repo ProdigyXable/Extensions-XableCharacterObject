@@ -1,6 +1,6 @@
 #include "Common.h"
 
-
+// Returns the length of a string in a given message
 int Extension::CharCount(const TCHAR * Message)
 {
 
@@ -15,6 +15,8 @@ int Extension::CharCount(const TCHAR * Message)
 	}
 	return charCount;
 }
+
+// Returns the number of english vowels in a string (a,e,i,o,u) in both cases, in a given message
 int Extension::VowelCount(const TCHAR * Message)
 {
 	unsigned int vowel = 0, length = _tcslen(Message);
@@ -33,6 +35,8 @@ int Extension::VowelCount(const TCHAR * Message)
 	}
 	return vowel;
 }
+
+// Returns the number of english consonants in a string (b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z) in both cases, in a given message
 int Extension::ConsonantCount(const TCHAR * Message)
 {
 	unsigned int consonant = 0, length = _tcslen(Message);
@@ -58,6 +62,8 @@ int Extension::ConsonantCount(const TCHAR * Message)
 	return consonant;
 
 }
+
+// Returns the number of english letters in a string (a-z)(A-Z), in a given message
 int Extension::LetterCount(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), letter = 0;
@@ -75,6 +81,8 @@ int Extension::LetterCount(const TCHAR * Message)
 
 	return letter;
 }
+
+// Returns the number of base 10 numbers (0-9), in a given message
 int Extension::NumberCount(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), number = 0;
@@ -94,6 +102,8 @@ int Extension::NumberCount(const TCHAR * Message)
 	}
 	return number;
 }
+
+// Returns the number of a specified character in a given message
 int Extension::FindCount(const TCHAR * Message, const TCHAR * Letter)
 {
 	unsigned int length = _tcslen(Message), length2 = _tcslen(Letter), charcount = 0;
@@ -117,6 +127,8 @@ int Extension::FindCount(const TCHAR * Message, const TCHAR * Letter)
 
 	return charcount;
 }
+
+// Returns the number of uppercase letters in a message, based on the standard english alphabet
 int Extension::UpperCount(const TCHAR * Message)
 {
 
@@ -137,6 +149,8 @@ int Extension::UpperCount(const TCHAR * Message)
 	}
 	return upper;
 }
+
+// Returns the number of lowercase letters in a message, based on the standard english alphabet
 int Extension::LowerCount(const TCHAR * Message)
 {
 
@@ -158,6 +172,8 @@ int Extension::LowerCount(const TCHAR * Message)
 		}
 	return lower;
 }
+
+// Returns the number of whitespace characters in a message (newlines,tabs,spaces,enter key presses, etc)
 int Extension::WhiteCount(const TCHAR * Message)
 {
 
@@ -180,6 +196,9 @@ int Extension::WhiteCount(const TCHAR * Message)
 
 	return blank;
 }
+
+// Returns the number of unicode characters in a message 
+// ** Note ** Returned numbers may be inaccurated
 int Extension::UnicodeCount(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), unicode = 0;
@@ -194,6 +213,8 @@ int Extension::UnicodeCount(const TCHAR * Message)
 	
 	return unicode;
 }
+
+// Returns the number of punctuation characters in a message
 int Extension::PunctuationCount(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), punctuation = 0;
@@ -210,12 +231,16 @@ int Extension::PunctuationCount(const TCHAR * Message)
 	}
 	return punctuation;
 }
+
+// Returns the ASCII id of the first character in a message
 int Extension::ReturnCharValue(const TCHAR * Message)
 {
 	unsigned int length =_tcslen(Message), value = 0;
 
 	return Message[0];
 }
+
+// Returns the number of invalid file characters in a message (characters that cannot be in a filename
 int Extension::InvalidFileCharacters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), invalid = 0;
@@ -233,6 +258,7 @@ int Extension::InvalidFileCharacters(const TCHAR * Message)
 
 }
 
+// Removes leading whitespaces from a message
 TCHAR * Extension::RemoveLeadingWhiteSpaces(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -259,6 +285,8 @@ TCHAR * Extension::RemoveLeadingWhiteSpaces(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes trailing whitespaces from a message
 TCHAR * Extension::RemoveTrailingWhiteSpaces(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -282,12 +310,16 @@ TCHAR * Extension::RemoveTrailingWhiteSpaces(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes leading and trailing whitespaces from a message
 TCHAR * Extension::RemoveLeadingAndTrailingWhiteSpaces(const TCHAR * Message)
 {
 
 	return RemoveLeadingWhiteSpaces(RemoveTrailingWhiteSpaces(Message));
 
 }
+
+// Removes all whitespaces from a message
 TCHAR * Extension::RemoveAllWhiteSpaces(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -315,7 +347,7 @@ TCHAR * Extension::RemoveAllWhiteSpaces(const TCHAR * Message)
 	return New;
 }
 
-
+// Removes leading punctuation marks in a message
 TCHAR * Extension::RemoveLeadingPunctuation(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -342,6 +374,8 @@ TCHAR * Extension::RemoveLeadingPunctuation(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes trailing punctuaion marks in a message
 TCHAR * Extension::RemoveTrailingPunctuation(const TCHAR * Message)
 {
 		unsigned int length = _tcslen(Message);
@@ -366,10 +400,14 @@ TCHAR * Extension::RemoveTrailingPunctuation(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes leading and trailing punctuation marks in a message 
 TCHAR * Extension::RemoveLeadingAndTrailingPunctuation(const TCHAR * Message)
 {
 	return RemoveLeadingPunctuation(RemoveTrailingPunctuation(Message));
 }
+
+// Removes all punctuation marks in a message
 TCHAR * Extension::RemoveAllPunctuation(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -395,6 +433,7 @@ TCHAR * Extension::RemoveAllPunctuation(const TCHAR * Message)
 	return New;
 }
 
+// Removes leading numbers from a message (0-9)
 TCHAR * Extension::RemoveLeadingNumbers(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -421,6 +460,8 @@ TCHAR * Extension::RemoveLeadingNumbers(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes trailing numbers from a message (0-9)
 TCHAR * Extension::RemoveTrailingNumbers(const TCHAR * Message)
 {
 		unsigned int length = _tcslen(Message);
@@ -445,10 +486,14 @@ TCHAR * Extension::RemoveTrailingNumbers(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes leading and trailing numbers from a message (0-9)
 TCHAR * Extension::RemoveLeadingAndTrailingNumbers(const TCHAR * Message)
 {
 	return RemoveLeadingNumbers(RemoveTrailingNumbers(Message));
 }
+
+// Removes all numbers from a message (0-9)
 TCHAR * Extension::RemoveAllNumbers(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -474,6 +519,7 @@ TCHAR * Extension::RemoveAllNumbers(const TCHAR * Message)
 	return New;
 }
 
+// Removes leading letters from a message (vowels and consonants) (a-z) (A-Z)
 TCHAR * Extension::RemoveLeadingLetters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -500,6 +546,8 @@ TCHAR * Extension::RemoveLeadingLetters(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes trailing letters from a message (vowels and consonants) (a-z) (A-Z)
 TCHAR * Extension::RemoveTrailingLetters(const TCHAR * Message)
 {
 		unsigned int length = _tcslen(Message);
@@ -524,10 +572,14 @@ TCHAR * Extension::RemoveTrailingLetters(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes leading and trailing letters from a message (vowels and consonants) (a-z) (A-Z)
 TCHAR * Extension::RemoveLeadingAndTrailingLetters(const TCHAR * Message)
 {
 	return RemoveLeadingLetters(RemoveTrailingLetters(Message));
 }
+
+// Removes all letters from a message (vowels and consonants) (a-z) (A-Z)
 TCHAR * Extension::RemoveAllLetters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -554,6 +606,7 @@ TCHAR * Extension::RemoveAllLetters(const TCHAR * Message)
 	return New;
 }
 
+// Removes leading consonants from a message 
 TCHAR * Extension::RemoveLeadingConsonants(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -581,6 +634,8 @@ TCHAR * Extension::RemoveLeadingConsonants(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes trailing consonants from a message
 TCHAR * Extension::RemoveTrailingConsonants(const TCHAR * Message)
 {
 		unsigned int length = _tcslen(Message);
@@ -607,10 +662,14 @@ TCHAR * Extension::RemoveTrailingConsonants(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes leading and trailing consonants from a message
 TCHAR * Extension::RemoveLeadingAndTrailingConsonants(const TCHAR * Message)
 {
 	return RemoveLeadingConsonants(RemoveTrailingConsonants(Message));
 }
+
+// Removes all consonants from a message
 TCHAR * Extension::RemoveAllConsonants(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -638,6 +697,7 @@ TCHAR * Extension::RemoveAllConsonants(const TCHAR * Message)
 	return New;
 }
 
+// Removes leading vowels from a message
 TCHAR * Extension::RemoveLeadingVowels(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -665,6 +725,8 @@ TCHAR * Extension::RemoveLeadingVowels(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes trailing vowels from a message
 TCHAR * Extension::RemoveTrailingVowels(const TCHAR * Message)
 {
 		unsigned int length = _tcslen(Message);
@@ -690,10 +752,14 @@ TCHAR * Extension::RemoveTrailingVowels(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes leading and trailing vowels from a message
 TCHAR * Extension::RemoveLeadingAndTrailingVowels(const TCHAR * Message)
 {
 	return RemoveLeadingVowels(RemoveTrailingVowels(Message));
 }
+
+// Removes all vowels from a message
 TCHAR * Extension::RemoveAllVowels(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -721,6 +787,7 @@ TCHAR * Extension::RemoveAllVowels(const TCHAR * Message)
 	return New;
 }
 
+// Removes leading uppercase letters from a message
 TCHAR * Extension::RemoveLeadingUppercaseLetters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -747,6 +814,8 @@ TCHAR * Extension::RemoveLeadingUppercaseLetters(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes trailing uppercase letters from a message
 TCHAR * Extension::RemoveTrailingUppercaseLetters(const TCHAR * Message)
 {
 		unsigned int length = _tcslen(Message);
@@ -770,10 +839,14 @@ TCHAR * Extension::RemoveTrailingUppercaseLetters(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes leading and trailing uppercase letters from a message
 TCHAR * Extension::RemoveLeadingAndTrailingUppercaseLetters(const TCHAR * Message)
 {
 	return RemoveLeadingUppercaseLetters(RemoveTrailingUppercaseLetters(Message));
 }
+
+// Removes all uppercase letters from a message
 TCHAR * Extension::RemoveAllUppercaseLetters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -800,6 +873,7 @@ TCHAR * Extension::RemoveAllUppercaseLetters(const TCHAR * Message)
 	return New;
 }
 
+// Removes leading lowercase letters from a message
 TCHAR * Extension::RemoveLeadingLowercaseLetters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -826,6 +900,8 @@ TCHAR * Extension::RemoveLeadingLowercaseLetters(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes trailing lowercase letters from a message
 TCHAR * Extension::RemoveTrailingLowercaseLetters(const TCHAR * Message)
 {
 		unsigned int length = _tcslen(Message);
@@ -849,10 +925,14 @@ TCHAR * Extension::RemoveTrailingLowercaseLetters(const TCHAR * Message)
 
 	return RealNew;
 }
+
+// Removes leading and trailing lowercase letters from a message
 TCHAR * Extension::RemoveLeadingAndTrailingLowercaseLetters(const TCHAR * Message)
 {
 	return RemoveLeadingLowercaseLetters(RemoveTrailingLowercaseLetters(Message));
 }
+
+// Removes all lowercase letters from a message
 TCHAR * Extension::RemoveAllLowercaseLetters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -879,6 +959,8 @@ TCHAR * Extension::RemoveAllLowercaseLetters(const TCHAR * Message)
 
 	return New;
 }
+
+// Repeats a phrase x amount of times before a specified message
 TCHAR * Extension::PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats)
 {
 	repeats = max(repeats, 0);
@@ -898,6 +980,8 @@ TCHAR * Extension::PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, in
 
 	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());
 }
+
+// Repeats a phrase x amount of times after a specified message
 TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats)
 {
 	repeats = max(repeats, 0);
@@ -920,6 +1004,8 @@ TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, i
 
 	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());
 }
+
+// Reverse a given string
 TCHAR * Extension::ReverseString(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);

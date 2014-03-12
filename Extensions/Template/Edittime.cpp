@@ -11,49 +11,16 @@
 #include "Common.h"
 
 #if !defined(RUN_ONLY)
-
-// PROPERTIES /////////////////////////////////////////////////////////////////
-
 // Property identifiers
 enum {
 	PROPID_SETTINGS = PROPID_EXTITEM_CUSTOM_FIRST,
 	Version,
 	Email,
-//	Changes,
-
-// Example
-// -------
-//	PROPID_TEXTTITLE,	
-//	PROPID_TEXT,	
-//	PROPID_CHECK,
-//	PROPID_COMBO,
-//	PROPID_COLOR,
-
 
 };
 
-// Example of content of the PROPID_COMBO combo box
-//LPCSTR ComboList[] = {
-//	0,	// reserved
-//	MAKEINTRESOURCE(IDS_FIRSTOPTION),	
-//	MAKEINTRESOURCE(IDS_SECONDOPTION),	
-//	MAKEINTRESOURCE(IDS_THIRDOPTION),	
-//	NULL
-//};
-
-// Property definitions
-//
-// Type, ID, Text, Text of Info box [, Options, Init Param]
-//
 PropData Properties[] = {
 
-// Example
-// -------
-//	PropData_Group		(PROPID_TEXTTITLE,	IDS_PROP_TEXTTITLE,		IDS_PROP_TEXTTITLE),
-//	PropData_EditString	(PROPID_TEXT,		IDS_PROP_TEXT,			IDS_PROP_TEXT_INFO),
-//	PropData_CheckBox	(PROPID_CHECK,		IDS_PROP_CHECK,			IDS_PROP_CHECK_INFO),
-//	PropData_ComboBox	(PROPID_COMBO,		IDS_PROP_COMBO,			IDS_PROP_COMBO,	ComboList),
-//	PropData_Color		(PROPID_COLOR,		IDS_PROP_COLOR,			IDS_PROP_COLOR_INFO),
 	PropData_StaticString(Version, (UINT_PTR)"Version:", (UINT_PTR)"Extension Version number"),
 	PropData_StaticString(Email, (UINT_PTR)"Email", (UINT_PTR)"Any comments/issues/complaints/questions/etc should be sent here"),
 
@@ -62,7 +29,7 @@ PropData Properties[] = {
 };
 
 
-#endif // !defined(RUN_ONLY)
+#endif // !defined(RUdN_ONLY)
 
 
 // ============================================================================
@@ -408,11 +375,12 @@ LPVOID WINAPI DLLExport GetPropValue(LPMV mV, LPEDATA edPtr, UINT nPropID)
 #ifndef RUN_ONLY
 	// Example
 	// -------
-	switch (nPropID) {
+	switch (nPropID) 
+	{
 	case Version:
-		return new CPropStringValue("February 24th, 2013");
+		return new CPropDataValue("March 12, 2014");
 	case Email:
-		return new CPropStringValue("ProdigyXable@gmail.com");
+		return new CPropDataValue("ProdigyXable@gmail.com");
 	}
 //
 //	// Returns a color.
@@ -573,7 +541,9 @@ BOOL WINAPI IsPropEnabled(LPMV mV, LPEDATA edPtr, UINT nPropID)
 
 	switch (nPropID) {
 
-	case (Version || Email):
+	case Version:
+		return true;
+	case Email:
 		return true;
 
 	}

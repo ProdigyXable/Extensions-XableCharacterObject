@@ -1,6 +1,8 @@
 
 #include "Common.h"
 
+
+// Returns true if a message contains only numbers (0-9)
 bool Extension::NumbersOnly(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -17,7 +19,7 @@ bool Extension::NumbersOnly(const TCHAR * Message)
 
 }
 
-
+// Returns true if a message contains any numbers (0-9)
 bool Extension::AnyNumbers(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -34,8 +36,7 @@ bool Extension::AnyNumbers(const TCHAR * Message)
 
 }
 
-
-
+// Returns true if a message contains only letters (vowels and consonants)
 bool Extension::LettersOnly(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -52,7 +53,7 @@ bool Extension::LettersOnly(const TCHAR * Message)
 
 }
 
-
+// Returns true if a message contains any letter (vowels and consonants)
 bool Extension::AnyLetters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -69,6 +70,7 @@ bool Extension::AnyLetters(const TCHAR * Message)
 
 }
 
+// Returns true if a message contains only vowels (a,e,i,o,u)
 bool Extension::VowelsOnly(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -85,7 +87,7 @@ bool Extension::VowelsOnly(const TCHAR * Message)
 
 }
 
-
+// Returns true if a message contains any vowels (a,e,i,o,u)
 bool Extension::AnyVowels(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -102,6 +104,7 @@ bool Extension::AnyVowels(const TCHAR * Message)
 
 }
 
+// Returns true if a message contains only consonants
 bool Extension::ConsonantsOnly(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -121,7 +124,7 @@ bool Extension::ConsonantsOnly(const TCHAR * Message)
 
 }
 
-
+// Returns true if a message contains any consonants
 bool Extension::AnyConsonants(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -142,6 +145,7 @@ bool Extension::AnyConsonants(const TCHAR * Message)
 
 }
 
+// Returns true if a message contains only punctuation marks
 bool Extension::PunctuationOnly(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -157,7 +161,7 @@ bool Extension::PunctuationOnly(const TCHAR * Message)
 	return true;
 }
 
-
+// Returns true if a message contains any punctuation mark
 bool Extension::AnyPunctuation(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -173,6 +177,7 @@ bool Extension::AnyPunctuation(const TCHAR * Message)
 	return false;
 }
 
+// Returns true if a message contains only whitespace characters
 bool Extension::WhiteSpaceOnly(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -189,7 +194,7 @@ bool Extension::WhiteSpaceOnly(const TCHAR * Message)
 
 }
 
-
+// Returns true if a message contains only whitespace characters
 bool Extension::AnyWhiteSpace(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -206,6 +211,7 @@ bool Extension::AnyWhiteSpace(const TCHAR * Message)
 
 }
 
+// Returns true if a message starts wtih a whitespace character
 bool Extension::StartsWhiteSpace(const TCHAR * Message)
 {
 	if(isspace(Message[0]))
@@ -216,7 +222,7 @@ bool Extension::StartsWhiteSpace(const TCHAR * Message)
 
 }
 
-
+// Returns true if a message ends with a whitespace character
 bool Extension::EndsWhiteSpace(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -229,6 +235,7 @@ bool Extension::EndsWhiteSpace(const TCHAR * Message)
 
 }
 
+// Returns true if a message contains any invalid file characters
 bool Extension::ContainsInvalidFileCharacters(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -244,6 +251,9 @@ bool Extension::ContainsInvalidFileCharacters(const TCHAR * Message)
 	return false;
 }
 
+// Returns true if a message is in email format (mydomain@email.address)
+// One '@' in the message
+// One '.' after the @ in the message
 bool Extension::EmailFormat(const TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
@@ -256,7 +266,7 @@ bool Extension::EmailFormat(const TCHAR * Message)
 	const TCHAR At_Symbol = '@';
 	const TCHAR * At_Symbol_Pointer = &At_Symbol;
 	
-	for(int while_loop_index = 0; while_loop_index < length; ++while_loop_index)
+	for(unsigned int while_loop_index = 0; while_loop_index < length; ++while_loop_index)
 	{
 		if(Message[while_loop_index] == '@' && at_detected == false && Extension::FindCount(Message,At_Symbol_Pointer) == 1)
 		{
