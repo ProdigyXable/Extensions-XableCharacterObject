@@ -1,6 +1,6 @@
 <b><i>Xable Character Object</i></b>
 
-Allows various character manipulation & detection within MMF2 & Fusion 2.5
+Allows various character manipulation & detection within MMF2 & Clickteam Fusion
 
 
 <hr/>
