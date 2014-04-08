@@ -11,4 +11,5 @@ Allows various character manipulation & detection within MMF2 & Clickteam Fusion
 		- How to reproduce the crash
 		- Files as necessary
 		-  Any other important information
-- This extension was design explicitly to be used with the <b><i>English alphabet</i></b> in the ASCII character format. Other languages are currently supported
+- This extension was design explicitly to be used with the <b><i>English alphabet</i></b> in the ASCII character format. Other languages are currently <b>unsupported</b>
+- <i><b>You need Visual Studio 2012 or Visual Studio 2013 to open this project</b></i>
