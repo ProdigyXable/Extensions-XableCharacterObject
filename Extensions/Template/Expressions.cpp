@@ -974,7 +974,10 @@ TCHAR * Extension::PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, in
 
 	string FinalMessage = "";
 
+	// Adds the repeating message first
 	FinalMessage.append(PhraseMessage);
+
+	// Adds the 'fixed' message last
 	FinalMessage.append((char *) Message);
 
 
@@ -988,10 +991,6 @@ TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, i
 	
 	string PhraseMessage = "";
 
-	string copy_of_phrase = "";
-
-
-
 	for(int index = 0; index < repeats; index++)
 	{
 		PhraseMessage.append((char *)Phrase);
@@ -999,7 +998,10 @@ TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, i
 
 	string FinalMessage = "";
 
+	// Adds the 'fixed' message first
 	FinalMessage.append((char *)Message);
+
+	// Adds the repeating message last
 	FinalMessage.append(PhraseMessage);
 
 	return Runtime.CopyString((TCHAR *)FinalMessage.c_str());

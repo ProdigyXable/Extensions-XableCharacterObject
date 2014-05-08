@@ -14,6 +14,7 @@
 // Property identifiers
 enum {
 	PROPID_SETTINGS = PROPID_EXTITEM_CUSTOM_FIRST,
+	Version_Group,
 	Version,
 	Email,
 
@@ -21,6 +22,7 @@ enum {
 
 PropData Properties[] = {
 
+	PropData_Group(Version_Group, (UINT_PTR)"Version Settings",(UINT_PTR)""),
 	PropData_StaticString(Version, (UINT_PTR)"Version:", (UINT_PTR)"Extension Version number"),
 	PropData_StaticString(Email, (UINT_PTR)"Email", (UINT_PTR)"Any comments/issues/complaints/questions/etc should be sent here"),
 
@@ -378,9 +380,11 @@ LPVOID WINAPI DLLExport GetPropValue(LPMV mV, LPEDATA edPtr, UINT nPropID)
 	switch (nPropID) 
 	{
 	case Version:
-		return new CPropDataValue("March 12, 2014");
+		return new CPropDataValue("April 13th, 2014");
 	case Email:
 		return new CPropDataValue("ProdigyXable@gmail.com");
+	case Version_Group:
+		return new CPropDataValue("");
 	}
 //
 //	// Returns a color.
@@ -544,6 +548,8 @@ BOOL WINAPI IsPropEnabled(LPMV mV, LPEDATA edPtr, UINT nPropID)
 	case Version:
 		return true;
 	case Email:
+		return true;
+	case Version_Group:
 		return true;
 
 	}
