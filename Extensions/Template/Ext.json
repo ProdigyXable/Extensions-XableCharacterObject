@@ -4,7 +4,7 @@
         "Author": "Samuel Benton",
         "Copyright": "Copyright (C) 2014 Samuel Benton",
         "Comment": "Allows for counting of certain types of characters within strings and string maniuplation. Currently only available for the English alphabet.",
-        "URL": "http://www.xable.us",
+        "URL": "http://www.xable.us/xable-character-object.html",
         "Help": "http://www.xable.us/xable-character-object.html",
         "Identifier": "Prod",
     },
