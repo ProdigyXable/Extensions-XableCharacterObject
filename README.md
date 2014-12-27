@@ -9,6 +9,6 @@ Allows various character manipulation & detection within MMF2 & Clickteam Fusion
 		- Extension Version
 		- How to reproduce the crash
 		- Files as necessary
-		-  Any other important information
+		- Any other important information
 - This extension was design explicitly to be used with the <b><i>English alphabet</i></b> in the ASCII character format. Other languages are currently <b>unsupported</b>
 - <i><b>You need Visual Studio 2012 or higher to open this project.</b></i>
