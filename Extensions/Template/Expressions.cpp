@@ -1,7 +1,7 @@
 #include "Common.h"
 
 // Returns the length of a string in a given message
-int Extension::CharCount(const TCHAR * Message)
+int Extension::CharCount(TCHAR * Message)
 {
 
 	unsigned int charCount = 0;
@@ -17,7 +17,7 @@ int Extension::CharCount(const TCHAR * Message)
 }
 
 // Returns the number of english vowels in a string (a,e,i,o,u) in both cases, in a given message
-int Extension::VowelCount(const TCHAR * Message)
+int Extension::VowelCount(TCHAR * Message)
 {
 	unsigned int vowel = 0, length = _tcslen(Message);
 
@@ -37,7 +37,7 @@ int Extension::VowelCount(const TCHAR * Message)
 }
 
 // Returns the number of english consonants in a string (b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z) in both cases, in a given message
-int Extension::ConsonantCount(const TCHAR * Message)
+int Extension::ConsonantCount(TCHAR * Message)
 {
 	unsigned int consonant = 0, length = _tcslen(Message);
 
@@ -64,7 +64,7 @@ int Extension::ConsonantCount(const TCHAR * Message)
 }
 
 // Returns the number of english letters in a string (a-z)(A-Z), in a given message
-int Extension::LetterCount(const TCHAR * Message)
+int Extension::LetterCount(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), letter = 0;
 	
@@ -83,7 +83,7 @@ int Extension::LetterCount(const TCHAR * Message)
 }
 
 // Returns the number of base 10 numbers (0-9), in a given message
-int Extension::NumberCount(const TCHAR * Message)
+int Extension::NumberCount(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), number = 0;
 
@@ -104,7 +104,7 @@ int Extension::NumberCount(const TCHAR * Message)
 }
 
 // Returns the number of a specified character in a given message
-int Extension::FindCount(const TCHAR * Message, const TCHAR * Letter)
+int Extension::FindCount(TCHAR * Message, TCHAR * Letter)
 {
 	unsigned int length = _tcslen(Message), length2 = _tcslen(Letter), charcount = 0;
 
@@ -129,7 +129,7 @@ int Extension::FindCount(const TCHAR * Message, const TCHAR * Letter)
 }
 
 // Returns the number of uppercase letters in a message, based on the standard english alphabet
-int Extension::UpperCount(const TCHAR * Message)
+int Extension::UpperCount(TCHAR * Message)
 {
 
 	unsigned int length = _tcslen(Message), upper = 0;
@@ -151,7 +151,7 @@ int Extension::UpperCount(const TCHAR * Message)
 }
 
 // Returns the number of lowercase letters in a message, based on the standard english alphabet
-int Extension::LowerCount(const TCHAR * Message)
+int Extension::LowerCount(TCHAR * Message)
 {
 
 	unsigned int length = _tcslen(Message), lower = 0;
@@ -174,7 +174,7 @@ int Extension::LowerCount(const TCHAR * Message)
 }
 
 // Returns the number of whitespace characters in a message (newlines,tabs,spaces,enter key presses, etc)
-int Extension::WhiteCount(const TCHAR * Message)
+int Extension::WhiteCount(TCHAR * Message)
 {
 
 	unsigned int length = _tcslen(Message), blank = 0;
@@ -199,7 +199,7 @@ int Extension::WhiteCount(const TCHAR * Message)
 
 // Returns the number of unicode characters in a message 
 // ** Note ** Returned numbers may be inaccurated
-int Extension::UnicodeCount(const TCHAR * Message)
+int Extension::UnicodeCount(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), unicode = 0;
 
@@ -215,7 +215,7 @@ int Extension::UnicodeCount(const TCHAR * Message)
 }
 
 // Returns the number of punctuation characters in a message
-int Extension::PunctuationCount(const TCHAR * Message)
+int Extension::PunctuationCount(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), punctuation = 0;
 
@@ -233,7 +233,7 @@ int Extension::PunctuationCount(const TCHAR * Message)
 }
 
 // Returns the ASCII id of the first character in a message
-int Extension::ReturnCharValue(const TCHAR * Message)
+int Extension::ReturnCharValue(TCHAR * Message)
 {
 	unsigned int length =_tcslen(Message), value = 0;
 
@@ -241,7 +241,7 @@ int Extension::ReturnCharValue(const TCHAR * Message)
 }
 
 // Returns the number of invalid file characters in a message (characters that cannot be in a filename
-int Extension::InvalidFileCharacters(const TCHAR * Message)
+int Extension::InvalidFileCharacters(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), invalid = 0;
 
@@ -259,10 +259,9 @@ int Extension::InvalidFileCharacters(const TCHAR * Message)
 }
 
 // Removes leading whitespaces from a message
-TCHAR * Extension::RemoveLeadingWhiteSpaces(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingWhiteSpaces(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	bool detect = false;
+	unsigned int length = _tcslen(Message) + 1;
 
 	TCHAR * New = NULL;
 	   
@@ -271,52 +270,42 @@ TCHAR * Extension::RemoveLeadingWhiteSpaces(const TCHAR * Message)
 
 	while(index < length)
 	{
-		if(!detect && !_istspace(Message[index]))
+		// Space characters skip this portion
+		if(!_istspace(Message[index]))
 		{
-			detect = true;
-			New = (TCHAR *) Runtime.Allocate(length - index);
+			New = (TCHAR *) Runtime.Allocate(1 + length - index);
 
 			for(; index < length; index++, internal_index++)
 			{
 				New[internal_index] = Message[index];
 			}
+
+				New[_tcslen(New)] = '\0';
+				return New;
 		}
 
 		index++;
 	}
 
-	return New;
+	return Message;
 }
 
 // Removes trailing whitespaces from a message
-TCHAR * Extension::RemoveTrailingWhiteSpaces(const TCHAR * Message)
+TCHAR * Extension::RemoveTrailingWhiteSpaces(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message); 
-	unsigned int index = 0;
-	
-	while(_istspace(Message[(length-index)-1]))
-	{
-		index++;
-	}
-
-	TCHAR * RealNew = (TCHAR *) Runtime.Allocate(length-index);
-	_tcsncpy(RealNew, Message, length-index);
-	
-	RealNew[length-index] = '\0';
-
-	return RealNew;
+	return Runtime.CopyString(ReverseString(RemoveLeadingWhiteSpaces(ReverseString(Message))));
 }
 
 // Removes leading and trailing whitespaces from a message
-TCHAR * Extension::RemoveLeadingAndTrailingWhiteSpaces(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingAndTrailingWhiteSpaces(TCHAR * Message)
 {
 
-	return RemoveTrailingWhiteSpaces(RemoveLeadingWhiteSpaces(Message));
+	return Runtime.CopyString(RemoveTrailingWhiteSpaces(RemoveLeadingWhiteSpaces(Message)));
 
 }
 
 // Removes all whitespaces from a message
-TCHAR * Extension::RemoveAllWhiteSpaces(const TCHAR * Message)
+TCHAR * Extension::RemoveAllWhiteSpaces(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -337,14 +326,13 @@ TCHAR * Extension::RemoveAllWhiteSpaces(const TCHAR * Message)
 
 	New[internal_index] = '\0';
 
-	return New;
+	return Runtime.CopyString(New);
 }
 
 // Removes leading punctuation marks in a message
-TCHAR * Extension::RemoveLeadingPunctuation(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingPunctuation(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	bool detect = false;
+	unsigned int length = _tcslen(Message) + 1;
 
 	TCHAR * New = NULL;
 	   
@@ -353,49 +341,40 @@ TCHAR * Extension::RemoveLeadingPunctuation(const TCHAR * Message)
 
 	while(index < length)
 	{
-		if(!detect && !_istpunct(Message[index]))
+		// Punctuation characters skip this portion
+		if(!_istpunct(Message[index]))
 		{
-			detect = true;
-			New = (TCHAR *) Runtime.Allocate(length - index);
+			New = (TCHAR *) Runtime.Allocate(1 + length - index);
 
 			for(; index < length; index++, internal_index++)
 			{
 				New[internal_index] = Message[index];
 			}
+
+				New[_tcslen(New)] = '\0';
+				return Runtime.CopyString(New);
 		}
 
 		index++;
 	}
 
-	return New;
+	return Runtime.CopyString(Message);
 }
 
 // Removes trailing punctuaion marks in a message
-TCHAR * Extension::RemoveTrailingPunctuation(const TCHAR * Message)
+TCHAR * Extension::RemoveTrailingPunctuation(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	unsigned int index = 0;
-	
-	while(_istpunct(Message[(length-index)-1]))
-	{
-		index++;
-	}
-
-	TCHAR * RealNew = (TCHAR *) Runtime.Allocate(length-index);
-	_tcsncpy(RealNew, Message, length-index);
-	RealNew[length-index] = '\0';
-
-	return RealNew;
+	return Runtime.CopyString(ReverseString(RemoveLeadingPunctuation(ReverseString(Message))));
 }
 
 // Removes leading and trailing punctuation marks in a message 
-TCHAR * Extension::RemoveLeadingAndTrailingPunctuation(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingAndTrailingPunctuation(TCHAR * Message)
 {
-	return RemoveTrailingPunctuation(RemoveLeadingPunctuation(Message));
+	return Runtime.CopyString(RemoveTrailingPunctuation(RemoveLeadingPunctuation(Message)));
 }
 
 // Removes all punctuation marks in a message
-TCHAR * Extension::RemoveAllPunctuation(const TCHAR * Message)
+TCHAR * Extension::RemoveAllPunctuation(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -416,14 +395,12 @@ TCHAR * Extension::RemoveAllPunctuation(const TCHAR * Message)
 
 	New[internal_index] = '\0';
 	
-	return New;
+	return Runtime.CopyString(New);
 }
 
 // Removes leading numbers from a message (0-9)
-TCHAR * Extension::RemoveLeadingNumbers(const TCHAR * Message)
-{
-	unsigned int length = _tcslen(Message);
-	bool detect = false;
+TCHAR * Extension::RemoveLeadingNumbers(TCHAR * Message)
+{	unsigned int length = _tcslen(Message) + 1;
 
 	TCHAR * New = NULL;
 	   
@@ -432,49 +409,40 @@ TCHAR * Extension::RemoveLeadingNumbers(const TCHAR * Message)
 
 	while(index < length)
 	{
-		if(!detect && !_istdigit(Message[index]))
+		// Number characters skip this portion
+		if(!_istdigit(Message[index]))
 		{
-			detect = true;
-			New = (TCHAR *) Runtime.Allocate(length - index);
+			New = (TCHAR *) Runtime.Allocate(1 + length - index);
 
 			for(; index < length; index++, internal_index++)
 			{
 				New[internal_index] = Message[index];
 			}
+
+				New[_tcslen(New)] = '\0';
+				return Runtime.CopyString(New);
 		}
 
 		index++;
 	}
 
-	return New;
+	return Runtime.CopyString(Message);
 }
 
 // Removes trailing numbers from a message (0-9)
-TCHAR * Extension::RemoveTrailingNumbers(const TCHAR * Message)
+TCHAR * Extension::RemoveTrailingNumbers(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	unsigned int index = 0;
-
-	while(_istdigit(Message[(length-index)-1]))
-	{
-		index++;
-	}
-
-	TCHAR * RealNew = (TCHAR *) Runtime.Allocate(length-index);
-	_tcsncpy(RealNew, Message, length-index);
-	RealNew[length-index] = '\0';
-
-	return RealNew;
+	return Runtime.CopyString(ReverseString(RemoveLeadingNumbers(ReverseString(Message))));
 }
 
 // Removes leading and trailing numbers from a message (0-9)
-TCHAR * Extension::RemoveLeadingAndTrailingNumbers(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingAndTrailingNumbers(TCHAR * Message)
 {
-	return RemoveTrailingNumbers(RemoveLeadingNumbers(Message));
+	return Runtime.CopyString(RemoveTrailingNumbers(RemoveLeadingNumbers(Message)));
 }
 
 // Removes all numbers from a message (0-9)
-TCHAR * Extension::RemoveAllNumbers(const TCHAR * Message)
+TCHAR * Extension::RemoveAllNumbers(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -495,14 +463,13 @@ TCHAR * Extension::RemoveAllNumbers(const TCHAR * Message)
 
 	New[internal_index] = '\0';
 	
-	return New;
+	return Runtime.CopyString(New);
 }
 
 // Removes leading letters from a message (vowels and consonants) (a-z) (A-Z)
-TCHAR * Extension::RemoveLeadingLetters(const TCHAR * Message)
-{
-	unsigned int length = _tcslen(Message);
-	bool detect = false;
+TCHAR * Extension::RemoveLeadingLetters(TCHAR * Message)
+{	
+	unsigned int length = _tcslen(Message) + 1;
 
 	TCHAR * New = NULL;
 	   
@@ -511,49 +478,40 @@ TCHAR * Extension::RemoveLeadingLetters(const TCHAR * Message)
 
 	while(index < length)
 	{
-		if(!detect && !isalpha(Message[index]))
+		// Letter characters skip this portion
+		if(!_istalpha(Message[index]))
 		{
-			detect = true;
-			New = (TCHAR *) Runtime.Allocate(length - index);
+			New = (TCHAR *) Runtime.Allocate(1 + length - index);
 
 			for(; index < length; index++, internal_index++)
 			{
 				New[internal_index] = Message[index];
 			}
+
+				New[_tcslen(New)] = '\0';
+				return Runtime.CopyString(New);
 		}
 
 		index++;
 	}
 
-	return New;
+	return Runtime.CopyString(Message);
 }
 
 // Removes trailing letters from a message (vowels and consonants) (a-z) (A-Z)
-TCHAR * Extension::RemoveTrailingLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveTrailingLetters(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	unsigned int index = 0;
-
-	while(_istalpha(Message[(length-index)-1]))
-	{
-		index++;
-	}
-
-	TCHAR * RealNew = (TCHAR *) Runtime.Allocate(length-index);
-	_tcsncpy(RealNew, Message, length-index);
-	RealNew[length-index] = '\0';
-
-	return RealNew;
+	return Runtime.CopyString(ReverseString(RemoveLeadingLetters(ReverseString(Message))));
 }
 
 // Removes leading and trailing letters from a message (vowels and consonants) (a-z) (A-Z)
-TCHAR * Extension::RemoveLeadingAndTrailingLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingAndTrailingLetters(TCHAR * Message)
 {
-	return RemoveTrailingLetters(RemoveLeadingLetters(Message));
+	return Runtime.CopyString(RemoveTrailingLetters(RemoveLeadingLetters(Message)));
 }
 
 // Removes all letters from a message (vowels and consonants) (a-z) (A-Z)
-TCHAR * Extension::RemoveAllLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveAllLetters(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -575,14 +533,13 @@ TCHAR * Extension::RemoveAllLetters(const TCHAR * Message)
 	
 	New[internal_index] = '\0';
 
-	return New;
+	return Runtime.CopyString(New);
 }
 
 // Removes leading consonants from a message 
-TCHAR * Extension::RemoveLeadingConsonants(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingConsonants(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	bool detect = false;
+	unsigned int length = _tcslen(Message) + 1;
 
 	TCHAR * New = NULL;
 	   
@@ -591,51 +548,40 @@ TCHAR * Extension::RemoveLeadingConsonants(const TCHAR * Message)
 
 	while(index < length)
 	{
-		if(!detect && _istalpha(Message[index]) && !(_totlower(Message[index]) != 'a' && _totlower(Message[index]) != 'e' && _totlower(Message[index]) != 'i' && _totlower(Message[index]) != 'o' && _totlower(Message[index]) != 'u'))
+		// Consonants characters skip this portion
+		if(_istalpha(Message[index]) && !(_totlower(Message[index]) != 'a' && _totlower(Message[index]) != 'e' && _totlower(Message[index]) != 'i' && _totlower(Message[index]) != 'o' && _totlower(Message[index]) != 'u'))
 		{
-			detect = true;
-			New = (TCHAR *) Runtime.Allocate(length - index);
+			New = (TCHAR *) Runtime.Allocate(1 + length - index);
 
 			for(; index < length; index++, internal_index++)
 			{
 				New[internal_index] = Message[index];
 			}
+
+				New[_tcslen(New)] = '\0';
+				return Runtime.CopyString(New);
 		}
 
 		index++;
 	}
 
-	return New;
+	return Runtime.CopyString(Message);
 }
 
 // Removes trailing consonants from a message
-TCHAR * Extension::RemoveTrailingConsonants(const TCHAR * Message)
+TCHAR * Extension::RemoveTrailingConsonants(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	unsigned int index = 0;
-	
-	while(_istalpha(Message[(length - index)-1]) && (_totlower(Message[(length - index)-1]) != 'a' &&
-		_totlower(Message[(length - index)-1]) != 'e' && _totlower(Message[(length - index)-1]) != 'i' &&
-		_totlower(Message[(length - index)-1]) != 'o' && _totlower(Message[(length - index)-1]) != 'u'))
-	{
-		index++;
-	}
-
-	TCHAR * RealNew = (TCHAR *) Runtime.Allocate(length-index);
-	_tcsncpy(RealNew, Message, length-index);
-	RealNew[length-index] = '\0';
-
-	return RealNew;
+	return Runtime.CopyString(ReverseString(RemoveLeadingConsonants(ReverseString(Message))));
 }
 
 // Removes leading and trailing consonants from a message
-TCHAR * Extension::RemoveLeadingAndTrailingConsonants(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingAndTrailingConsonants(TCHAR * Message)
 {
-	return RemoveTrailingConsonants(RemoveLeadingConsonants(Message));
+	return Runtime.CopyString(RemoveTrailingConsonants(RemoveLeadingConsonants(Message)));
 }
 
 // Removes all consonants from a message
-TCHAR * Extension::RemoveAllConsonants(const TCHAR * Message)
+TCHAR * Extension::RemoveAllConsonants(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -656,14 +602,13 @@ TCHAR * Extension::RemoveAllConsonants(const TCHAR * Message)
 
 	New[internal_index] = '\0';
 
-	return New;
+	return Runtime.CopyString(New);
 }
 
 // Removes leading vowels from a message
-TCHAR * Extension::RemoveLeadingVowels(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingVowels(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	bool detect = false;
+	unsigned int length = _tcslen(Message) + 1;
 
 	TCHAR * New = NULL;
 	   
@@ -672,53 +617,40 @@ TCHAR * Extension::RemoveLeadingVowels(const TCHAR * Message)
 
 	while(index < length)
 	{
-		if(!detect && _istalpha(Message[index]) && !(_totlower(Message[index]) == 'a' || _totlower(Message[index]) == 'e' || _totlower(Message[index]) == 'i' || _totlower(Message[index]) == 'o' || _totlower(Message[index]) == 'u'))
+		// Vowel characters skip this portion
+		if(_istalpha(Message[index]) && !(_totlower(Message[index]) == 'a' || _totlower(Message[index]) == 'e' || _totlower(Message[index]) == 'i' || _totlower(Message[index]) == 'o' || _totlower(Message[index]) == 'u'))
 		{
-			detect = true;
-			New = (TCHAR *) Runtime.Allocate(length - index);
+			New = (TCHAR *) Runtime.Allocate(1 + length - index);
 
 			for(; index < length; index++, internal_index++)
 			{
 				New[internal_index] = Message[index];
 			}
+
+				New[_tcslen(New)] = '\0';
+				return Runtime.CopyString(New);
 		}
 
 		index++;
 	}
 
-	return New;
+	return Runtime.CopyString(Message);
 }
 
 // Removes trailing vowels from a message
-TCHAR * Extension::RemoveTrailingVowels(const TCHAR * Message)
+TCHAR * Extension::RemoveTrailingVowels(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-
-	TCHAR * New = (TCHAR *) Runtime.Allocate(length);
-   
-	unsigned int index = 0;
-	unsigned int internal_index = 0;
-
-	while(_istalpha(Message[(length-index)-1]) && (tolower(Message[(length-index)-1]) == 'a' || tolower(Message[(length-index)-1]) == 'e' || tolower(Message[(length-index)-1]) == 'i' || tolower(Message[(length-index)-1]) == 'o' || tolower(Message[(length-index)-1]) == 'u'))
-	{
-		index++;
-	}
-
-	TCHAR * RealNew = (TCHAR *) Runtime.Allocate(length-index);
-	_tcsncpy(RealNew, Message, length-index);
-	RealNew[length-index] = '\0';
-
-	return RealNew;
+	return Runtime.CopyString(ReverseString(RemoveLeadingVowels(ReverseString(Message))));
 }
 
 // Removes leading and trailing vowels from a message
-TCHAR * Extension::RemoveLeadingAndTrailingVowels(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingAndTrailingVowels(TCHAR * Message)
 {
-	return RemoveTrailingVowels(RemoveLeadingVowels(Message));
+	return Runtime.CopyString(RemoveTrailingVowels(RemoveLeadingVowels(Message)));
 }
 
 // Removes all vowels from a message
-TCHAR * Extension::RemoveAllVowels(const TCHAR * Message)
+TCHAR * Extension::RemoveAllVowels(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -740,14 +672,13 @@ TCHAR * Extension::RemoveAllVowels(const TCHAR * Message)
 
 	New[internal_index] = '\0';
 	
-	return New;
+	return Runtime.CopyString(New);
 }
 
 // Removes leading uppercase letters from a message
-TCHAR * Extension::RemoveLeadingUppercaseLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingUppercaseLetters(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	bool detect = false;
+	unsigned int length = _tcslen(Message) + 1;
 
 	TCHAR * New = NULL;
 	   
@@ -756,53 +687,40 @@ TCHAR * Extension::RemoveLeadingUppercaseLetters(const TCHAR * Message)
 
 	while(index < length)
 	{
-		if(!detect && !_istupper(Message[index]))
+		// Uppercase characters skip this portion
+		if(!_istupper(Message[index]))
 		{
-			detect = true;
-			New = (TCHAR *) Runtime.Allocate(length - index);
+			New = (TCHAR *) Runtime.Allocate(1 + length - index);
 
 			for(; index < length; index++, internal_index++)
 			{
 				New[internal_index] = Message[index];
 			}
+
+				New[_tcslen(New)] = '\0';
+				return Runtime.CopyString(New);
 		}
 
 		index++;
 	}
 
-	return New;
+	return Runtime.CopyString(Message);
 }
 
 // Removes trailing uppercase letters from a message
-TCHAR * Extension::RemoveTrailingUppercaseLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveTrailingUppercaseLetters(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-
-	TCHAR * New = (TCHAR *) Runtime.Allocate(length);
-   
-	unsigned int index = 0;
-	unsigned int internal_index = 0;
-
-	while(_istupper(Message[(length-index)-1]))
-	{
-		index++;
-	}
-
-	TCHAR * RealNew = (TCHAR *) Runtime.Allocate(length-index);
-	_tcsncpy(RealNew, Message, length-index);
-	RealNew[length-index] = '\0';
-
-	return RealNew;
+	return Runtime.CopyString(ReverseString(RemoveLeadingUppercaseLetters(ReverseString(Message))));
 }
 
 // Removes leading and trailing uppercase letters from a message
-TCHAR * Extension::RemoveLeadingAndTrailingUppercaseLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingAndTrailingUppercaseLetters(TCHAR * Message)
 {
-	return RemoveTrailingUppercaseLetters(RemoveLeadingUppercaseLetters(Message));
+	return Runtime.CopyString(RemoveTrailingUppercaseLetters(RemoveLeadingUppercaseLetters(Message)));
 }
 
 // Removes all uppercase letters from a message
-TCHAR * Extension::RemoveAllUppercaseLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveAllUppercaseLetters(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -824,14 +742,13 @@ TCHAR * Extension::RemoveAllUppercaseLetters(const TCHAR * Message)
 
 	New[internal_index] = '\0';
 	
-	return New;
+	return Runtime.CopyString(New);
 }
 
 // Removes leading lowercase letters from a message
-TCHAR * Extension::RemoveLeadingLowercaseLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingLowercaseLetters(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-	bool detect = false;
+		unsigned int length = _tcslen(Message) + 1;
 
 	TCHAR * New = NULL;
 	   
@@ -840,53 +757,40 @@ TCHAR * Extension::RemoveLeadingLowercaseLetters(const TCHAR * Message)
 
 	while(index < length)
 	{
-		if(!detect && !_totupper(Message[index]))
+		// Lowercase characters skip this portion
+		if(!_istlower(Message[index]))
 		{
-			detect = true;
-			New = (TCHAR *) Runtime.Allocate(length - index);
+			New = (TCHAR *) Runtime.Allocate(1 + length - index);
 
 			for(; index < length; index++, internal_index++)
 			{
 				New[internal_index] = Message[index];
 			}
+
+				New[_tcslen(New)] = '\0';
+				return Runtime.CopyString(New);
 		}
 
 		index++;
 	}
 
-	return New;
+	return Runtime.CopyString(Message);
 }
 
 // Removes trailing lowercase letters from a message
-TCHAR * Extension::RemoveTrailingLowercaseLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveTrailingLowercaseLetters(TCHAR * Message)
 {
-	unsigned int length = _tcslen(Message);
-
-	TCHAR * New = (TCHAR *) Runtime.Allocate(length);
-
-	unsigned int index = 0;
-	unsigned int internal_index = 0;
-
-	while(_istlower(Message[(length-index)-1]))
-	{
-		index++;
-	}
-
-	TCHAR * RealNew = (TCHAR *) Runtime.Allocate(length-index);
-	_tcsncpy(RealNew, Message, length-index);
-	RealNew[length-index] = '\0';
-
-	return RealNew;
+	return Runtime.CopyString(ReverseString(RemoveLeadingLowercaseLetters(ReverseString(Message))));
 }
 
 // Removes leading and trailing lowercase letters from a message
-TCHAR * Extension::RemoveLeadingAndTrailingLowercaseLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveLeadingAndTrailingLowercaseLetters(TCHAR * Message)
 {
 	return RemoveTrailingLowercaseLetters(RemoveLeadingLowercaseLetters(Message));
 }
 
 // Removes all lowercase letters from a message
-TCHAR * Extension::RemoveAllLowercaseLetters(const TCHAR * Message)
+TCHAR * Extension::RemoveAllLowercaseLetters(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -907,11 +811,11 @@ TCHAR * Extension::RemoveAllLowercaseLetters(const TCHAR * Message)
 
 	New[internal_index] = '\0';
 	
-	return New;
+	return Runtime.CopyString(New);
 }
 
 // Repeats a phrase x amount of times before a specified message
-TCHAR * Extension::PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats)
+TCHAR * Extension::PadLeftPhrase(TCHAR * Message, TCHAR * Phrase, int repeats)
 {
 	repeats = max(repeats, 0);
 	
@@ -935,7 +839,7 @@ TCHAR * Extension::PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, in
 }
 
 // Repeats a phrase x amount of times after a specified message
-TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats)
+TCHAR * Extension::PadRightPhrase(TCHAR * Message, TCHAR * Phrase, int repeats)
 {
 	repeats = max(repeats, 0);
 	
@@ -958,15 +862,19 @@ TCHAR * Extension::PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, i
 }
 
 // Reverse a given string
-TCHAR * Extension::ReverseString(const TCHAR * Message)
+TCHAR * Extension::ReverseString(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
-	string Message_String = "";
+	TCHAR * MessageArray = (TCHAR *)Runtime.Allocate(length);
 
-	Message_String.append( (char *) Message);
-	Message_String = string( Message_String.rbegin(), Message_String.rend());
+	for(int index = 0; index < length; index++)
+	{
+		MessageArray[length - index - 1] = Message[index];
+	}
 
-	return Runtime.CopyString( (TCHAR *)Message_String.c_str());
+	MessageArray[length] = '\0';
+
+	return Runtime.CopyString(MessageArray);
 
 }

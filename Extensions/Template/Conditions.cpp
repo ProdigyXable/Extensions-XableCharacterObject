@@ -3,7 +3,7 @@
 
 
 // Returns true if a message contains only numbers (0-9)
-bool Extension::NumbersOnly(const TCHAR * Message)
+bool Extension::NumbersOnly(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -20,7 +20,7 @@ bool Extension::NumbersOnly(const TCHAR * Message)
 }
 
 // Returns true if a message contains any numbers (0-9)
-bool Extension::AnyNumbers(const TCHAR * Message)
+bool Extension::AnyNumbers(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -37,7 +37,7 @@ bool Extension::AnyNumbers(const TCHAR * Message)
 }
 
 // Returns true if a message contains only letters (vowels and consonants)
-bool Extension::LettersOnly(const TCHAR * Message)
+bool Extension::LettersOnly(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -54,7 +54,7 @@ bool Extension::LettersOnly(const TCHAR * Message)
 }
 
 // Returns true if a message contains any letter (vowels and consonants)
-bool Extension::AnyLetters(const TCHAR * Message)
+bool Extension::AnyLetters(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -71,7 +71,7 @@ bool Extension::AnyLetters(const TCHAR * Message)
 }
 
 // Returns true if a message contains only vowels (a,e,i,o,u)
-bool Extension::VowelsOnly(const TCHAR * Message)
+bool Extension::VowelsOnly(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -88,7 +88,7 @@ bool Extension::VowelsOnly(const TCHAR * Message)
 }
 
 // Returns true if a message contains any vowels (a,e,i,o,u)
-bool Extension::AnyVowels(const TCHAR * Message)
+bool Extension::AnyVowels(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -105,7 +105,7 @@ bool Extension::AnyVowels(const TCHAR * Message)
 }
 
 // Returns true if a message contains only consonants
-bool Extension::ConsonantsOnly(const TCHAR * Message)
+bool Extension::ConsonantsOnly(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -125,7 +125,7 @@ bool Extension::ConsonantsOnly(const TCHAR * Message)
 }
 
 // Returns true if a message contains any consonants
-bool Extension::AnyConsonants(const TCHAR * Message)
+bool Extension::AnyConsonants(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -146,7 +146,7 @@ bool Extension::AnyConsonants(const TCHAR * Message)
 }
 
 // Returns true if a message contains only punctuation marks
-bool Extension::PunctuationOnly(const TCHAR * Message)
+bool Extension::PunctuationOnly(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -162,7 +162,7 @@ bool Extension::PunctuationOnly(const TCHAR * Message)
 }
 
 // Returns true if a message contains any punctuation mark
-bool Extension::AnyPunctuation(const TCHAR * Message)
+bool Extension::AnyPunctuation(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -178,7 +178,7 @@ bool Extension::AnyPunctuation(const TCHAR * Message)
 }
 
 // Returns true if a message contains only whitespace characters
-bool Extension::WhiteSpaceOnly(const TCHAR * Message)
+bool Extension::WhiteSpaceOnly(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -195,7 +195,7 @@ bool Extension::WhiteSpaceOnly(const TCHAR * Message)
 }
 
 // Returns true if a message contains only whitespace characters
-bool Extension::AnyWhiteSpace(const TCHAR * Message)
+bool Extension::AnyWhiteSpace(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -212,7 +212,7 @@ bool Extension::AnyWhiteSpace(const TCHAR * Message)
 }
 
 // Returns true if a message starts wtih a whitespace character
-bool Extension::StartsWhiteSpace(const TCHAR * Message)
+bool Extension::StartsWhiteSpace(TCHAR * Message)
 {
 	if(isspace(Message[0]))
 	{
@@ -223,7 +223,7 @@ bool Extension::StartsWhiteSpace(const TCHAR * Message)
 }
 
 // Returns true if a message ends with a whitespace character
-bool Extension::EndsWhiteSpace(const TCHAR * Message)
+bool Extension::EndsWhiteSpace(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -236,7 +236,7 @@ bool Extension::EndsWhiteSpace(const TCHAR * Message)
 }
 
 // Returns true if a message contains any invalid file characters
-bool Extension::ContainsInvalidFileCharacters(const TCHAR * Message)
+bool Extension::ContainsInvalidFileCharacters(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 
@@ -254,7 +254,7 @@ bool Extension::ContainsInvalidFileCharacters(const TCHAR * Message)
 // Returns true if a message is in email format (mydomain@email.address)
 // One '@' in the message
 // One '.' after the @ in the message
-bool Extension::EmailFormat(const TCHAR * Message)
+bool Extension::EmailFormat(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message);
 	
@@ -263,8 +263,8 @@ bool Extension::EmailFormat(const TCHAR * Message)
 	bool dot_detected = false;
 	bool after_characters = false;
 
-	const TCHAR At_Symbol = '@';
-	const TCHAR * At_Symbol_Pointer = &At_Symbol;
+	TCHAR At_Symbol = '@';
+	TCHAR * At_Symbol_Pointer = &At_Symbol;
 	
 	for(unsigned int while_loop_index = 0; while_loop_index < length; ++while_loop_index)
 	{

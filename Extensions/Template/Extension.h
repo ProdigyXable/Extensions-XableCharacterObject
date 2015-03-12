@@ -47,82 +47,82 @@ public:
 
     /// Conditions
 
-		bool NumbersOnly(const TCHAR * Message);
-		bool AnyNumbers(const TCHAR * Message);
-		bool LettersOnly(const TCHAR * Message);
-		bool AnyLetters(const TCHAR * Message);
-		bool VowelsOnly(const TCHAR * Message);
-		bool AnyVowels(const TCHAR * Message);
-		bool ConsonantsOnly(const TCHAR * Message);
-		bool AnyConsonants(const TCHAR * Message);
-		bool PunctuationOnly(const TCHAR * Message);
-		bool AnyPunctuation(const TCHAR * Message);
-		bool WhiteSpaceOnly(const TCHAR * Message);
-		bool AnyWhiteSpace(const TCHAR * Message);
-		bool StartsWhiteSpace(const TCHAR * Message);
-		bool EndsWhiteSpace(const TCHAR * Message);
-		bool ContainsInvalidFileCharacters(const TCHAR * Message);
-		bool EmailFormat(const TCHAR * Message);
+		bool NumbersOnly(TCHAR * Message);
+		bool AnyNumbers(TCHAR * Message);
+		bool LettersOnly(TCHAR * Message);
+		bool AnyLetters(TCHAR * Message);
+		bool VowelsOnly(TCHAR * Message);
+		bool AnyVowels(TCHAR * Message);
+		bool ConsonantsOnly(TCHAR * Message);
+		bool AnyConsonants(TCHAR * Message);
+		bool PunctuationOnly(TCHAR * Message);
+		bool AnyPunctuation(TCHAR * Message);
+		bool WhiteSpaceOnly(TCHAR * Message);
+		bool AnyWhiteSpace(TCHAR * Message);
+		bool StartsWhiteSpace(TCHAR * Message);
+		bool EndsWhiteSpace(TCHAR * Message);
+		bool ContainsInvalidFileCharacters(TCHAR * Message);
+		bool EmailFormat(TCHAR * Message);
 
     /// Expressions
         
-      	int CharCount(const TCHAR * Message);
-		int VowelCount(const TCHAR * Message);
-		int ConsonantCount(const TCHAR * Message);
-		int LetterCount(const TCHAR * Message);
-		int NumberCount(const TCHAR * Message);
-		int FindCount(const TCHAR * Message, const TCHAR * Letter);
-		int UpperCount(const TCHAR * Message);
-		int LowerCount(const TCHAR * Message);
-		int WhiteCount(const TCHAR * Message);
-		int UnicodeCount(const TCHAR * Message);
-		int PunctuationCount(const TCHAR * Message);
-		int ReturnCharValue(const TCHAR * Message);
-		int InvalidFileCharacters(const TCHAR * Message);
+      	int CharCount(TCHAR * Message);
+		int VowelCount(TCHAR * Message);
+		int ConsonantCount(TCHAR * Message);
+		int LetterCount(TCHAR * Message);
+		int NumberCount(TCHAR * Message);
+		int FindCount(TCHAR * Message, TCHAR * Letter);
+		int UpperCount(TCHAR * Message);
+		int LowerCount(TCHAR * Message);
+		int WhiteCount(TCHAR * Message);
+		int UnicodeCount(TCHAR * Message);
+		int PunctuationCount(TCHAR * Message);
+		int ReturnCharValue(TCHAR * Message);
+		int InvalidFileCharacters(TCHAR * Message);
 
-		TCHAR * RemoveLeadingWhiteSpaces(const TCHAR * Message);
-		TCHAR * RemoveTrailingWhiteSpaces(const TCHAR * Message);
-		TCHAR * RemoveLeadingAndTrailingWhiteSpaces(const TCHAR * Message);
-		TCHAR * RemoveAllWhiteSpaces(const TCHAR * Message);
+		TCHAR * RemoveLeadingWhiteSpaces(TCHAR * Message);
+		TCHAR * RemoveTrailingWhiteSpaces(TCHAR * Message);
+		TCHAR * RemoveLeadingAndTrailingWhiteSpaces(TCHAR * Message);
+		TCHAR * RemoveAllWhiteSpaces(TCHAR * Message);
 
-		TCHAR * RemoveLeadingPunctuation(const TCHAR * Message);
-		TCHAR * RemoveTrailingPunctuation(const TCHAR * Message);
-		TCHAR * RemoveLeadingAndTrailingPunctuation(const TCHAR * Message);
-		TCHAR * RemoveAllPunctuation(const TCHAR * Message);
+		TCHAR * RemoveLeadingPunctuation(TCHAR * Message);
+		TCHAR * RemoveTrailingPunctuation(TCHAR * Message);
+		TCHAR * RemoveLeadingAndTrailingPunctuation(TCHAR * Message);
+		TCHAR * RemoveAllPunctuation(TCHAR * Message);
 
-		TCHAR * RemoveLeadingNumbers(const TCHAR * Message);
-		TCHAR * RemoveTrailingNumbers(const TCHAR * Message);
-		TCHAR * RemoveLeadingAndTrailingNumbers(const TCHAR * Message);
-		TCHAR * RemoveAllNumbers(const TCHAR * Message);
+		TCHAR * RemoveLeadingNumbers(TCHAR * Message);
+		TCHAR * RemoveTrailingNumbers(TCHAR * Message);
+		TCHAR * RemoveLeadingAndTrailingNumbers(TCHAR * Message);
+		TCHAR * RemoveAllNumbers(TCHAR * Message);
 
-		TCHAR * RemoveLeadingLetters(const TCHAR * Message);
-		TCHAR * RemoveTrailingLetters(const TCHAR * Message);
-		TCHAR * RemoveLeadingAndTrailingLetters(const TCHAR * Message);
-		TCHAR * RemoveAllLetters(const TCHAR * Message);
+		TCHAR * RemoveLeadingLetters(TCHAR * Message);
+		TCHAR * RemoveTrailingLetters(TCHAR * Message);
+		TCHAR * RemoveLeadingAndTrailingLetters(TCHAR * Message);
+		TCHAR * RemoveAllLetters(TCHAR * Message);
 
-		TCHAR * RemoveLeadingConsonants(const TCHAR * Message);
-		TCHAR * RemoveTrailingConsonants(const TCHAR * Message);
-		TCHAR * RemoveLeadingAndTrailingConsonants(const TCHAR * Message);
-		TCHAR * RemoveAllConsonants(const TCHAR * Message);
+		TCHAR * RemoveLeadingConsonants(TCHAR * Message);
+		TCHAR * RemoveTrailingConsonants(TCHAR * Message);
+		TCHAR * RemoveLeadingAndTrailingConsonants(TCHAR * Message);
+		TCHAR * RemoveAllConsonants(TCHAR * Message);
 
-		TCHAR * RemoveLeadingVowels(const TCHAR * Message);
-		TCHAR * RemoveTrailingVowels(const TCHAR * Message);
-		TCHAR * RemoveLeadingAndTrailingVowels(const TCHAR * Message);
-		TCHAR * RemoveAllVowels(const TCHAR * Message);
+		TCHAR * RemoveLeadingVowels(TCHAR * Message);
+		TCHAR * RemoveTrailingVowels(TCHAR * Message);
+		TCHAR * RemoveLeadingAndTrailingVowels(TCHAR * Message);
+		TCHAR * RemoveAllVowels(TCHAR * Message);
 
-		TCHAR * RemoveLeadingUppercaseLetters(const TCHAR * Message);
-		TCHAR * RemoveTrailingUppercaseLetters(const TCHAR * Message);
-		TCHAR * RemoveLeadingAndTrailingUppercaseLetters(const TCHAR * Message);
-		TCHAR * RemoveAllUppercaseLetters(const TCHAR * Message);
+		TCHAR * RemoveLeadingUppercaseLetters(TCHAR * Message);
+		TCHAR * RemoveTrailingUppercaseLetters(TCHAR * Message);
+		TCHAR * RemoveLeadingAndTrailingUppercaseLetters(TCHAR * Message);
+		TCHAR * RemoveAllUppercaseLetters(TCHAR * Message);
 
-		TCHAR * RemoveLeadingLowercaseLetters(const TCHAR * Message);
-		TCHAR * RemoveTrailingLowercaseLetters(const TCHAR * Message);
-		TCHAR * RemoveLeadingAndTrailingLowercaseLetters(const TCHAR * Message);
-		TCHAR * RemoveAllLowercaseLetters(const TCHAR * Message);
+		TCHAR * RemoveLeadingLowercaseLetters(TCHAR * Message);
+		TCHAR * RemoveTrailingLowercaseLetters(TCHAR * Message);
+		TCHAR * RemoveLeadingAndTrailingLowercaseLetters(TCHAR * Message);
+		TCHAR * RemoveAllLowercaseLetters(TCHAR * Message);
 
-		TCHAR * PadLeftPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats);
-		TCHAR * PadRightPhrase(const TCHAR * Message, const TCHAR * Phrase, int repeats);
-		TCHAR * ReverseString(const TCHAR * Message);
+		TCHAR * PadLeftPhrase(TCHAR * Message, TCHAR * Phrase, int repeats);
+		TCHAR * PadRightPhrase(TCHAR * Message, TCHAR * Phrase, int repeats);
+		TCHAR * ReverseString(TCHAR * Message);
 
     /* These are called if there's no function linked to an ID */
 
