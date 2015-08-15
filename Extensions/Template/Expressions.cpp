@@ -1,5 +1,17 @@
 #include "Common.h"
 
+bool isInvalidCharacter(TCHAR * Message, int charIndex)
+{
+	// Returns if Message[charIndex] is one of the following characters
+	return (Message[charIndex] == '/' || Message[charIndex] == '\\' || Message[charIndex] == '?' || Message[charIndex] == '*' || Message[charIndex] == '>' || Message[charIndex] == '<' ||	Message[charIndex] == '"' || Message[charIndex] == ':' || Message[charIndex] == '|');
+}
+
+bool isVowel(TCHAR * Message, int charIndex)
+{
+	// Returns if Message[charIndex] is one of the following characters
+	return (_totlower(Message[charIndex]) == _T('a') ||	_totlower(Message[charIndex]) == _T('e') ||	_totlower(Message[charIndex]) == _T('i') || _totlower(Message[charIndex]) == _T('o') ||	_totlower(Message[charIndex]) == _T('u') );
+}
+
 // Returns the length of a string in a given message
 int Extension::CharCount(TCHAR * Message)
 {
@@ -23,12 +35,7 @@ int Extension::VowelCount(TCHAR * Message)
 
 	for (unsigned int x = 0; x < length; ++x)
 	{
-		if (
-			_totlower(Message[x]) == _T('a') || 
-			_totlower(Message[x]) == _T('e') ||
-			_totlower(Message[x]) == _T('i') || 
-			_totlower(Message[x]) == _T('o') ||
-			_totlower(Message[x]) == _T('u'))
+		if (isVowel(Message,x))
 		{
 			++vowel;
 		}
@@ -47,12 +54,7 @@ int Extension::ConsonantCount(TCHAR * Message)
 		{
 			if(_istalpha(Message[x]))
 			{
-				if (
-					_totlower(Message[x]) != _T('a') && 
-					_totlower(Message[x]) != _T('e') &&
-					_totlower(Message[x]) != _T('i') && 
-					_totlower(Message[x]) != _T('o') &&
-					_totlower(Message[x]) != _T('u'))
+				if (!isVowel(Message,x))
 				{
 					++consonant;
 				}
@@ -198,7 +200,7 @@ int Extension::WhiteCount(TCHAR * Message)
 }
 
 // Returns the number of unicode characters in a message 
-// ** Note ** Returned numbers may be inaccurated
+// ** Note ** Returned numbers may be inaccurate. Need to determine correctness of function
 int Extension::UnicodeCount(TCHAR * Message)
 {
 	unsigned int length = _tcslen(Message), unicode = 0;
@@ -247,8 +249,7 @@ int Extension::InvalidFileCharacters(TCHAR * Message)
 
 	for(unsigned int x = 0; x < length; ++x)
 	{
-		if( Message[x] == '/' || Message[x] == '\\' || Message[x] == '?' || Message[x] == '*' || Message[x] == '>' || Message[x] == '<' || 
-			Message[x] == '"' || Message[x] == ':' || Message[x] == '|' )
+		if( isInvalidCharacter(Message,x) )
 		{
 			++invalid;
 		}
@@ -817,6 +818,7 @@ TCHAR * Extension::RemoveAllLowercaseLetters(TCHAR * Message)
 // Repeats a phrase x amount of times before a specified message
 TCHAR * Extension::PadLeftPhrase(TCHAR * Message, TCHAR * Phrase, int repeats)
 {
+	// Forces lower limit on repeats
 	repeats = max(repeats, 0);
 	
 	string PhraseMessage = "";
@@ -841,6 +843,7 @@ TCHAR * Extension::PadLeftPhrase(TCHAR * Message, TCHAR * Phrase, int repeats)
 // Repeats a phrase x amount of times after a specified message
 TCHAR * Extension::PadRightPhrase(TCHAR * Message, TCHAR * Phrase, int repeats)
 {
+	// Forces lower limit on repeats
 	repeats = max(repeats, 0);
 	
 	string PhraseMessage = "";

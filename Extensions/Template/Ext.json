@@ -405,7 +405,7 @@
         },
 
 		{
-            "Title": "TrimLeadingWhiteSpaces(",
+            "Title": "TrimLeadingWhiteSpaces$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -413,7 +413,7 @@
             ]
         },
 		{
-            "Title": "TrimTrailingWhiteSpaces(",
+            "Title": "TrimTrailingWhiteSpaces$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -421,7 +421,7 @@
             ]
         },
 		{
-            "Title": "TrimWhiteSpaces(",
+            "Title": "TrimWhiteSpaces$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -429,7 +429,7 @@
             ]
         },
 		{
-            "Title": "TrimAllWhiteSpaces(",
+            "Title": "TrimAllWhiteSpaces$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -437,7 +437,7 @@
             ]
         },
 		{
-            "Title": "TrimLeadingPunct(",
+            "Title": "TrimLeadingPunct$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -445,7 +445,7 @@
             ]
         },
 		{
-            "Title": "TrimTrailingPunct(",
+            "Title": "TrimTrailingPunct$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -453,7 +453,7 @@
             ]
         },
 		{
-            "Title": "TrimPunct(",
+            "Title": "TrimPunct$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -461,7 +461,7 @@
             ]
         },
 		{
-            "Title": "TrimAllPunct(",
+            "Title": "TrimAllPunct$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -469,7 +469,7 @@
             ]
         },
 		{
-            "Title": "TrimLeadingNum(",
+            "Title": "TrimLeadingNum$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -477,7 +477,7 @@
             ]
         },
 		{
-            "Title": "TrimTrailingNum(",
+            "Title": "TrimTrailingNum$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -485,7 +485,7 @@
             ]
         },
 		{
-            "Title": "TrimNum(",
+            "Title": "TrimNum$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -493,15 +493,7 @@
             ]
         },
 		{
-            "Title": "TrimAllNum(",
-            "Returns": "Text",
-            "Parameters": 
-			[
-                ["Text","Enter the Message Here"],
-            ]
-        },
-{
-            "Title": "TrimLeadingLetters(",
+            "Title": "TrimAllNum$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -509,7 +501,7 @@
             ]
         },
 		{
-            "Title": "TrimTrailingLetters(",
+            "Title": "TrimLeadingLetters$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -517,7 +509,7 @@
             ]
         },
 		{
-            "Title": "TrimLetters(",
+            "Title": "TrimTrailingLetters$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -525,15 +517,7 @@
             ]
         },
 		{
-            "Title": "TrimAllLetters(",
-            "Returns": "Text",
-            "Parameters": 
-			[
-                ["Text","Enter the Message Here"],
-            ]
-        },
-{
-            "Title": "TrimLeadingConso(",
+            "Title": "TrimLetters$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -541,7 +525,7 @@
             ]
         },
 		{
-            "Title": "TrimTrailingConso(",
+            "Title": "TrimAllLetters$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -549,7 +533,7 @@
             ]
         },
 		{
-            "Title": "TrimConso(",
+            "Title": "TrimLeadingConso$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -557,15 +541,7 @@
             ]
         },
 		{
-            "Title": "TrimAllConso(",
-            "Returns": "Text",
-            "Parameters": 
-			[
-                ["Text","Enter the Message Here"],
-            ]
-        },
-{
-            "Title": "TrimLeadingVow(",
+            "Title": "TrimTrailingConso$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -573,7 +549,7 @@
             ]
         },
 		{
-            "Title": "TrimTrailingVow(",
+            "Title": "TrimConso$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -581,7 +557,7 @@
             ]
         },
 		{
-            "Title": "TrimVow(",
+            "Title": "TrimAllConso$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -589,15 +565,7 @@
             ]
         },
 		{
-            "Title": "TrimAllVow(",
-            "Returns": "Text",
-            "Parameters": 
-			[
-                ["Text","Enter the Message Here"],
-            ]
-        },
-{
-            "Title": "TrimLeadingUpper(",
+            "Title": "TrimLeadingVow$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -605,7 +573,7 @@
             ]
         },
 		{
-            "Title": "TrimTrailingUpper(",
+            "Title": "TrimTrailingVow$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -613,7 +581,7 @@
             ]
         },
 		{
-            "Title": "TrimUpper(",
+            "Title": "TrimVow$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -621,15 +589,7 @@
             ]
         },
 		{
-            "Title": "TrimAllUpper(",
-            "Returns": "Text",
-            "Parameters": 
-			[
-                ["Text","Enter the Message Here"],
-            ]
-        },
-{
-            "Title": "TrimLeadingLower(",
+            "Title": "TrimAllVow$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -637,7 +597,7 @@
             ]
         },
 		{
-            "Title": "TrimTrailingLower(",
+            "Title": "TrimLeadingUpper$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -645,7 +605,7 @@
             ]
         },
 		{
-            "Title": "TrimLower(",
+            "Title": "TrimTrailingUpper$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -653,7 +613,7 @@
             ]
         },
 		{
-            "Title": "TrimAllLower(",
+            "Title": "TrimUpper$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -661,7 +621,47 @@
             ]
         },
 		{
-            "Title": "LeftPad(",
+            "Title": "TrimAllUpper$(",
+            "Returns": "Text",
+            "Parameters": 
+			[
+                ["Text","Enter the Message Here"],
+            ]
+        },
+		{
+            "Title": "TrimLeadingLower$(",
+            "Returns": "Text",
+            "Parameters": 
+			[
+                ["Text","Enter the Message Here"],
+            ]
+        },
+		{
+            "Title": "TrimTrailingLower$(",
+            "Returns": "Text",
+            "Parameters": 
+			[
+                ["Text","Enter the Message Here"],
+            ]
+        },
+		{
+            "Title": "TrimLower$(",
+            "Returns": "Text",
+            "Parameters": 
+			[
+                ["Text","Enter the Message Here"],
+            ]
+        },
+		{
+            "Title": "TrimAllLower$(",
+            "Returns": "Text",
+            "Parameters": 
+			[
+                ["Text","Enter the Message Here"],
+            ]
+        },
+		{
+            "Title": "LeftPad$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -671,7 +671,7 @@
             ]
         },
 		{
-            "Title": "RightPad(",
+            "Title": "RightPad$(",
             "Returns": "Text",
             "Parameters": 
 			[
@@ -681,7 +681,7 @@
             ]
         },
 		{	
-			"Title": "ReverseString(",
+			"Title": "ReverseString$(",
 			"Returns":	"Text",
 			"Parameters":
 			[
